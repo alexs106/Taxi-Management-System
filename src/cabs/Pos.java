@@ -11,16 +11,25 @@ public class Pos implements IPos{
         this.lng = lng;
     }
 
+    /*
+     * Get Latitude
+     */
     @Override
     public double getLat(){
         return lat;
     }
 
+    /*
+     * Get Longitude
+     */
     @Override
     public double getLng(){
         return lng;
     }
 
+    /*
+     * Calculate distance between destination and current position
+     */
     @Override
     public double distance(IPos dest){
         double x = Math.pow(2,Math.abs(this.getLat() - dest.getLat()));
@@ -29,6 +38,9 @@ public class Pos implements IPos{
         return Math.sqrt((x+y));
     }
 
+    /*
+     * Check if two positions are equal to eachother
+     */
     @Override
     public boolean equals(Object o){
         if(o instanceof IPos p){
@@ -37,6 +49,9 @@ public class Pos implements IPos{
         return false;
     }
 
+    /*
+     * Returns latitude,longitude
+     */
     @Override
     public String toString(){
         return getLat() + "," + getLng(); 
