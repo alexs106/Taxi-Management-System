@@ -77,6 +77,9 @@ public class MultiCab implements ICab{
         }
     }
 
+    /*
+     * Get the passenger list from all of the cabs
+     */
     @Override
     public Set<String> getPassengers(){
         Set<String> s = new HashSet<>();
