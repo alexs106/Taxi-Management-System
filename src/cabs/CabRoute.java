@@ -16,6 +16,9 @@ public class CabRoute extends Cab implements ICabRoute{
         return route; 
     }
 
+    /*
+     * SetPos modified - if 1st destination was passed, remove it from route
+     */
     @Override
     public void setPos(IPos pos){
         if(route.getFirst()!=null && route.getFirst().equals(pos)){

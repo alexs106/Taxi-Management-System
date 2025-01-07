@@ -1,5 +1,6 @@
 package cabs;
-import java.lang.Math; 
+import java.lang.Math;
+import java.util.Objects; 
 
 public class Pos implements IPos{
 
@@ -47,6 +48,11 @@ public class Pos implements IPos{
             return p.getLng() == lng && p.getLat() == lat;
         }
         return false;
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(lng,lat); 
     }
 
     /*

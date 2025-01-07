@@ -1,0 +1,37 @@
+package cabs;
+
+public class StatePos extends State{
+    private Map<IPos,ICabRoute> table = new HashMap<>(); 
+
+    public StatePos(Collection<ICabRoute> cabs){
+        super(cabs); 
+    }
+
+    /*
+     * Add cab to table of Positions and Routes
+     */
+    @Override
+    public void addCab(ICabRoute c){
+        table.put(c.getPos(),c); 
+        super.addCab(c);
+    }
+
+    /*
+     * Handle change of positions from table
+     */
+    @Override
+    public void handleChangePos(ICabRoute c, IPos p){
+        if(!getCabs().contains(c)) return;
+        table.remove(c.getPos());
+        super.handleChangePos(c,p);
+        table.put(p,c);
+    }
+
+    /*
+     * Return position of a cab
+     */
+    public ICabRoute cabAtPos(IPos p){
+        return table.get(p); 
+    }
+
+}
